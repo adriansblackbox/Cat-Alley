@@ -8,64 +8,61 @@ public class resetTracker : MonoBehaviour
     public GameObject alley2;
     public GameObject alley3;
 
+    private GameObject newAlley;
+
+    public int alleyNum; 
     public int resetSpeed = 10;
 
-    private GameObject temp;
-    private Transform startTransform;
+
     // Start is called before the first frame update
     void Start()
     {
-        temp = GameObject.Find("StartPosition");
-        startTransform = temp.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        var resetTransform = this.GetComponent<Transform>();
-        var resetPosition = resetTransform.position;
-
-        resetPosition.z += this.resetSpeed * Time.deltaTime;
-        resetTransform.position = resetPosition;
-
-        this.positionCheck();
     }
 
-    private void positionCheck()
-    {
-    var mark = GameObject.Find("ResetMarker");
-    var markTransform = mark.transform;
-        var resetTransform = this.GetComponent<Transform>();
-    var resetPosition = resetTransform.position;
-        if (resetPosition.z > markTransform.position.z) {
-            this.loopReset();
+    private void OnTriggerEnter(Collider col){
+        if(col.GetComponent<Collider>().name == "SpawnMarker"){
+            this.spawn();
+            Debug.Log("reset");
         }
-}
+        else if (col.GetComponent<Collider>().name == "DestroyMarker"){
+            Debug.Log("destroy");
+            GameObject.Destroy(this.transform.parent.gameObject);
+        }
+    }
 
-    private void loopReset()
+    private void spawn()
     {
 
     
         //selecting which alley to reset
-        var alleySelected = Random.Range(1, 4);
+        var alleySelected = Random.Range(1, alleyNum);
+        Debug.Log(alleySelected);
 
         //resetting the selected alley
         if (alleySelected == 1)
         {
-            alley1.GetComponent<AlleyMovement>().alleyReset();
-            Debug.Log("resetting 1");
+            // alley1.GetComponent<AlleyMovement>().alleyReset();
+            newAlley = Instantiate(alley1);
         }
         else if (alleySelected == 2)
         {
-            alley2.GetComponent<AlleyMovement>().alleyReset();
+            newAlley = Instantiate(alley2);
         }
         else if (alleySelected == 3)
         {
-            alley3.GetComponent<AlleyMovement>().alleyReset();
+            newAlley = Instantiate(alley3);
         }
 
-        //resetting the reseter
-        var resetTransform = this.GetComponent<Transform>();
-        resetTransform.position = startTransform.position; 
+        GameObject start = GameObject.Find("AlleyStartPosition");
+        var startPosition = start.transform.position;
+        var alleyTransform = newAlley.GetComponent<Transform>();
+        alleyTransform.position = startPosition;
+        var movement = newAlley.GetComponent<AlleyMovement>();
+        movement.enabled = true;
     }
 }

@@ -10,7 +10,7 @@ public class AlleyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,13 +24,4 @@ public class AlleyMovement : MonoBehaviour
         alleyPosition.z += this.alleySpeed * Time.deltaTime;
         alley.position = alleyPosition;
     }
-
-    public void alleyReset()
-    {
-        GameObject start = GameObject.Find("AlleyStartPosition");
-        var startTransform = start.transform;
-        var alleyPosition = startTransform.position;
-        var alley = this.GetComponent<Transform>();
-        alley.position = alleyPosition;
-    } 
 }
