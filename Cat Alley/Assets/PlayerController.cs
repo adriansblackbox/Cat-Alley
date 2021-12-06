@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayLength))
         {
-            Debug.Log("Ray Working");
+            if(Input.GetKeyDown(KeyCode.Mouse0))Destroy(hit.transform.gameObject);
         }
     }
 }
