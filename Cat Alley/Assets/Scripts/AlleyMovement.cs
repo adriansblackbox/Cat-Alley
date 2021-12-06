@@ -16,6 +16,8 @@ public class AlleyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
 
         var alley = this.GetComponent<Transform>();
         var alleyPosition = alley.position;

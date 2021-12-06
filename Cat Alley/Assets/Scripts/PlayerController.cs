@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float rotX;
     private float rotY;
     private float jumpTimer;
-    private float gravity = -9.8f;
     public int fails = 0;
 
     private void Start() {
