@@ -2554,7 +2554,7 @@ MonoBehaviour:
   moveSpeed: 2
   minTurnAngle: -90
   maxTurnAngle: 90
-  state: {fileID: 0}
+  state: {fileID: 1756430277}
   fails: 0
 --- !u!54 &1619353725
 Rigidbody:
