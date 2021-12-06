@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float JumpTime = 1.5f;
     public float maxTurnAngle = 90.0f;
     public Collider playerCollider;
+    public GameStateManager state;
     private float rotX;
     private float rotY;
     private float jumpTimer;
@@ -41,7 +42,10 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayLength))
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) Destroy(hit.transform.gameObject);
+            if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) {
+                Destroy(hit.transform.gameObject);
+                state.addScore();
+            }
         }
     }
     private void Jump(){
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("oof");
             this.fails += 1;
+            state.minusLive();
         }
     }
 }
