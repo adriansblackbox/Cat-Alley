@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float maxTurnAngle = 90.0f;
     private float rotX;
     private float rotY;
+    public int fails = 0;
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -37,6 +38,15 @@ public class PlayerController : MonoBehaviour
         if (hit && theTag == "cat")
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))Destroy(raycast_hit.transform.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "hazard")
+        {
+            Debug.Log("oof");
+            this.fails += 1;
         }
     }
 }
