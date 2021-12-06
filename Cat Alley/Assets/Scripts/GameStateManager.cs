@@ -29,6 +29,8 @@ public class GameStateManager : MonoBehaviour
         scoreTextValue = "Score: " + score;
         scoreText.text = scoreTextValue;
 
+        
+
     }
 
     public bool gameOver(){
