@@ -31,10 +31,12 @@ public class PlayerController : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
         // debug Ray
         Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, rayLength))
+        RaycastHit raycast_hit;
+        var hit = Physics.Raycast(ray, out raycast_hit);
+        var theTag = raycast_hit.collider.gameObject.tag;
+        if (hit && theTag == "cat")
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0))Destroy(hit.transform.gameObject);
+            if(Input.GetKeyDown(KeyCode.Mouse0))Destroy(raycast_hit.transform.gameObject);
         }
     }
 }
