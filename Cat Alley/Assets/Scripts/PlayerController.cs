@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float minTurnAngle = -90.0f;
     public float maxTurnAngle = 90.0f;
+    public GameStateManager state;
     private float rotX;
     private float rotY;
     public int fails = 0;
@@ -38,7 +39,10 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayLength))
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) Destroy(hit.transform.gameObject);
+            if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) {
+                Destroy(hit.transform.gameObject);
+                state.addScore();
+            }
         }
     }
 

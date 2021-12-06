@@ -10,6 +10,7 @@ public class GameStateManager : MonoBehaviour
     public Text scoreText;
     public int cooldown;
     public int ammo;
+    public int points;
 
     private string scoreTextValue;
 
@@ -31,6 +32,9 @@ public class GameStateManager : MonoBehaviour
 
         
 
+    }
+    public void addScore(){
+        score += points;
     }
 
     public bool gameOver(){
