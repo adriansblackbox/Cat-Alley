@@ -27,10 +27,8 @@ public class resetTracker : MonoBehaviour
     private void OnTriggerEnter(Collider col){
         if(col.GetComponent<Collider>().name == "SpawnMarker"){
             this.spawn();
-            Debug.Log("reset");
         }
         else if (col.GetComponent<Collider>().name == "DestroyMarker"){
-            Debug.Log("destroy");
             GameObject.Destroy(this.transform.parent.gameObject);
         }
     }
@@ -41,7 +39,6 @@ public class resetTracker : MonoBehaviour
     
         //selecting which alley to reset
         var alleySelected = Random.Range(1, alleyNum);
-        Debug.Log(alleySelected);
 
         //resetting the selected alley
         if (alleySelected == 1)
