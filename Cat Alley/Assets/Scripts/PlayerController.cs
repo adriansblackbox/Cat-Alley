@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("oof");
             this.fails += 1;
+            state.minusLive();
         }
     }
 }
