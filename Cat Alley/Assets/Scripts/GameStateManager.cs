@@ -11,6 +11,9 @@ public class GameStateManager : MonoBehaviour
     public int cooldown;
     public int ammo;
     public int points;
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
 
     private string scoreTextValue;
 
@@ -31,7 +34,7 @@ public class GameStateManager : MonoBehaviour
         scoreTextValue = "Score: " + score;
         scoreText.text = scoreTextValue;
 
-        
+        this.checkHeart();
 
     }
     public void addScore(){
@@ -40,6 +43,18 @@ public class GameStateManager : MonoBehaviour
 
     public void minusLive(){
         lives--;
+    }
+
+    public void checkHeart(){
+        if (lives == 2){
+            heart3.enabled = false;
+        }
+        if (lives == 1){
+            heart2.enabled = false;
+        }
+        if (lives == 0){
+            heart1.enabled = false;
+        }
     }
 
     public bool gameOver(){
