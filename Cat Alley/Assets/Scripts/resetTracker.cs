@@ -10,6 +10,7 @@ public class resetTracker : MonoBehaviour
 
     public void Spawn(){
         //selecting which alley to reset
+        Debug.Log("Spawned");
         int alleySelected = Random.Range(0, Alleys.Count);
         Alleys[alleySelected].transform.position = currentAlley.GetComponent<AlleyMovement>().End.transform.position;
         Alleys[alleySelected].GetComponent<AlleyMovement>().enabled = true;

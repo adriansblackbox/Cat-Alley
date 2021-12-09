@@ -23,7 +23,6 @@ public class GameStateManager : MonoBehaviour
     {
         if(gameOver()){
             //stop the game or something IDK
-            Debug.Log("game over");
         }
         scoreTextValue = "Score: " + score;
         scoreText.text = scoreTextValue;

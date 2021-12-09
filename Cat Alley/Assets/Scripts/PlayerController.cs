@@ -35,10 +35,15 @@ public class PlayerController : MonoBehaviour
     void Update(){
         Aim();
         Jump();
+        Move();
     }
     private void FixedUpdate() {
         Vector3 gravity = globalGravity * GravityScale * Vector3.up;
         GetComponent<Rigidbody>().AddForce(gravity, ForceMode.Acceleration);
+    }
+    private void Move(){
+        //GetComponent<Rigidbody>().velocity = new Vector3 (0.0f, GetComponent<Rigidbody>().velocity.y, -FindObjectOfType<GameStateManager>().AlleySpeed);
+        transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed * Time.deltaTime);
     }
     private void Aim(){
         rotY += Input.GetAxis("Mouse X") * turnSpeed;
@@ -60,7 +65,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void Jump(){
-        if(Input.GetKeyDown(KeyCode.Space) && jumpTimer <= 0){
+        if(Input.GetKey(KeyCode.Space) && jumpTimer <= 0){
             jumpTimer = JumpTime;
             GetComponent<Rigidbody>().velocity = new Vector3 (0.0f, JumpForce, 0.0f);
         }
@@ -72,7 +77,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.tag == "hazard")
         {
-            Debug.Log("oof");
             this.fails += 1;
             state.minusLive();
         }

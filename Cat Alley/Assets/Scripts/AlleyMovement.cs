@@ -5,31 +5,28 @@ using UnityEngine;
 public class AlleyMovement : MonoBehaviour
 {
     private float alleySpeed;
-    private Transform alley;
+    private GameObject _player;
     public Transform SpawnMarker;
     public Transform End;
     public Transform WaitingZone;
     public Transform StartWatingZone;
+
     private void Start() {
-        alley = this.GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
-        if(End.position.z >= SpawnMarker.position.z) Sleep();
-
-        alleySpeed = FindObjectOfType<GameStateManager>().AlleySpeed;
-        //alley moves at constant speed
-        transform.position += new Vector3 (0.0f, 0.0f, this.alleySpeed * Time.deltaTime);
+        if(End.position.z > _player.transform.position.z) Sleep();
     }
     private void Sleep(){
-        if(gameObject.CompareTag("StartAlley")){ 
-            FindObjectOfType<resetTracker>().Spawn();
-            transform.position = StartWatingZone.position;
-            GetComponent<AlleyMovement>().enabled = false;
-        }else{
+        if(!gameObject.CompareTag("StartAlley")){ 
             transform.position = WaitingZone.position;
             FindObjectOfType<resetTracker>().Alleys.Add(this.gameObject);
+            GetComponent<AlleyMovement>().enabled = false;
             FindObjectOfType<resetTracker>().Spawn();
+        }else{
+            FindObjectOfType<resetTracker>().Spawn();
+            transform.position = StartWatingZone.position;
             GetComponent<AlleyMovement>().enabled = false;
         }
     }
