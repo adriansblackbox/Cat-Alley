@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class AlleyMovement : MonoBehaviour
 {
-    //speed of the alley
-    public int alleySpeed = 10;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
+    public int alleySpeed = 20;
+    Transform alley;
+    private void Start() {
+        alley = this.GetComponent<Transform>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
-        var alley = this.GetComponent<Transform>();
         var alleyPosition = alley.position;
-
         //alley moves at constant speed
         alleyPosition.z += this.alleySpeed * Time.deltaTime;
         alley.position = alleyPosition;

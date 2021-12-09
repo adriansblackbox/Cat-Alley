@@ -13,17 +13,6 @@ public class resetTracker : MonoBehaviour
     public int alleyNum; 
     public int resetSpeed = 10;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerEnter(Collider col){
         if(col.GetComponent<Collider>().name == "SpawnMarker"){
             this.spawn();
@@ -43,7 +32,6 @@ public class resetTracker : MonoBehaviour
         //resetting the selected alley
         if (alleySelected == 1)
         {
-            // alley1.GetComponent<AlleyMovement>().alleyReset();
             newAlley = Instantiate(alley1);
         }
         else if (alleySelected == 2)
