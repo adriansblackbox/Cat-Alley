@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cat
   - hazard
+  - StartAlley
   layers:
   - Default
   - TransparentFX

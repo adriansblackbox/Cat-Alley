@@ -14,17 +14,10 @@ public class GameStateManager : MonoBehaviour
     public Image heart1;
     public Image heart2;
     public Image heart3;
+    public float AlleySpeed = 15f;
+    
 
     private string scoreTextValue;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(gameOver()){
@@ -35,6 +28,9 @@ public class GameStateManager : MonoBehaviour
         scoreText.text = scoreTextValue;
 
         this.checkHeart();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        Application.Quit();
 
     }
     public void addScore(){
