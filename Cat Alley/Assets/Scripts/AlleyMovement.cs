@@ -15,18 +15,15 @@ public class AlleyMovement : MonoBehaviour
     }
     void Update()
     {
-        if(End.position.z >= SpawnMarker.position.z)
-            Sleep();
+        if(End.position.z >= SpawnMarker.position.z) Sleep();
 
         alleySpeed = FindObjectOfType<GameStateManager>().AlleySpeed;
-
-        var alleyPosition = alley.position;
         //alley moves at constant speed
-        alleyPosition.z += this.alleySpeed * Time.deltaTime;
-        alley.position = alleyPosition;
+        transform.position += new Vector3 (0.0f, 0.0f, this.alleySpeed * Time.deltaTime);
     }
     private void Sleep(){
         if(gameObject.CompareTag("StartAlley")){ 
+            FindObjectOfType<resetTracker>().Spawn();
             transform.position = StartWatingZone.position;
             GetComponent<AlleyMovement>().enabled = false;
         }else{

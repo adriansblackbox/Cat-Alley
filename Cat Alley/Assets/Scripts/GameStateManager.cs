@@ -15,9 +15,10 @@ public class GameStateManager : MonoBehaviour
     public Image heart2;
     public Image heart3;
     public float AlleySpeed = 15f;
-    
-
     private string scoreTextValue;
+    private void Start() {
+        FindObjectOfType<resetTracker>().Spawn();
+    }
     void Update()
     {
         if(gameOver()){
