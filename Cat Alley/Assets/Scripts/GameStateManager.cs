@@ -29,9 +29,9 @@ public class GameStateManager : MonoBehaviour
 
         this.checkHeart();
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+       /* if(Input.GetKeyDown(KeyCode.Escape))
         Application.Quit();
-
+       */
     }
     public void addScore(){
         score += points;
