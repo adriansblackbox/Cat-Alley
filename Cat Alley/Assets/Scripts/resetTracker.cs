@@ -16,6 +16,8 @@ public class resetTracker : MonoBehaviour
         Alleys[alleySelected].GetComponent<AlleyMovement>().enabled = true;
         foreach(GameObject cat in  Alleys[alleySelected].GetComponent<AlleyMovement>().Cats){
             cat.SetActive(true);
+            var catCheck = cat.GetComponent<CatScript>();
+            catCheck.enabled = true;
         }
         currentAlley = Alleys[alleySelected];
         Alleys.Remove(Alleys[alleySelected]);

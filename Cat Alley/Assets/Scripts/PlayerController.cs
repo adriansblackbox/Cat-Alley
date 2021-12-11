@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float rotX;
     private float rotY;
     private float jumpTimer;
-    public int fails = 0;
     private float _groundHeight;
     private bool isGrounded;
 
@@ -79,14 +78,12 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.Space) && isGrounded){
             JumpForce = 10f;
         }
-        //Debug.Log();
         transform.Translate(new Vector3(0, JumpForce, 0) * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "hazard")
         {
-            this.fails += 1;
             state.minusLive();
         }
     }

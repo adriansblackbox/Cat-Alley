@@ -10,6 +10,11 @@ public class MenuScript : MonoBehaviour
     public GameObject quitButton;
     public GameObject instructionText;
     public GameObject returnButton;
+    public GameObject controlButtonGO;
+    public GameObject restartButtonGO;
+    public GameObject quitButtonGO;
+    public GameObject instructionTextGO;
+    public GameObject returnButtonGO;
 
     //player to disable aiming while in the menu
     public GameObject player;
@@ -35,7 +40,6 @@ public class MenuScript : MonoBehaviour
     {
         if (isPaused == false)
         {
-            Time.timeScale = 0;
             player.GetComponent<PlayerController>().enabled = false;
             menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -43,7 +47,6 @@ public class MenuScript : MonoBehaviour
         } else
         {
             player.GetComponent<PlayerController>().enabled = true;
-            Time.timeScale = 1;
             menu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             isPaused = false;
@@ -66,6 +69,28 @@ public class MenuScript : MonoBehaviour
             quitButton.SetActive(true);
             instructionText.SetActive(false);
             returnButton.SetActive(false);
+            instructionsOpened = false;
+        }
+    }
+
+    public void ControlsOnClickGameOver()
+    {
+        if (!instructionsOpened)
+        {
+            controlButtonGO.SetActive(false);
+            restartButtonGO.SetActive(false);
+            quitButtonGO.SetActive(false);
+            instructionTextGO.SetActive(true);
+            returnButtonGO.SetActive(true);
+            instructionsOpened = true;
+        }
+        else
+        {
+            controlButtonGO.SetActive(true);
+            restartButtonGO.SetActive(true);
+            quitButtonGO.SetActive(true);
+            instructionTextGO.SetActive(false);
+            returnButtonGO.SetActive(false);
             instructionsOpened = false;
         }
     }
