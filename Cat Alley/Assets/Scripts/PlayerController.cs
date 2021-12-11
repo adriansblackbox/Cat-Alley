@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 1.0f;
     private float JumpForce;
     public float moveSpeed = 2.0f;
-    public float minTurnAngle = -60.0f;
+    public float minTurnAngle = -30.0f;
     public float JumpTime = 1f;
-    public float maxTurnAngle = 60.0f;
+    public float maxTurnAngle = 30.0f;
     public Collider playerCollider;
     public GameStateManager state;
     private float rotX;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         else JumpForce += GravityScale * Time.deltaTime;
 
         if(Input.GetKey(KeyCode.Space) && isGrounded){
-            JumpForce = 10f;
+            JumpForce = 8f;
         }
         transform.Translate(new Vector3(0, JumpForce, 0) * Time.deltaTime);
     }

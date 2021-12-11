@@ -13174,12 +13174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 1.5
   moveSpeed: 2
-  minTurnAngle: -45
+  minTurnAngle: -25
   JumpTime: 1
-  maxTurnAngle: 45
+  maxTurnAngle: 25
   playerCollider: {fileID: 1619353726}
   state: {fileID: 1756430277}
-  GravityScale: -40
+  GravityScale: -30
 --- !u!54 &1619353725
 Rigidbody:
   m_ObjectHideFlags: 0
