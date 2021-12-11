@@ -66,6 +66,8 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void gameOver(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         player.GetComponent<PlayerController>().enabled = false;
         gameOverMenu.SetActive(true);
     }
