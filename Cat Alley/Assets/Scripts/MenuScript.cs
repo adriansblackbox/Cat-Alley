@@ -43,12 +43,14 @@ public class MenuScript : MonoBehaviour
             player.GetComponent<PlayerController>().enabled = false;
             menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             isPaused = true;
         } else
         {
             player.GetComponent<PlayerController>().enabled = true;
             menu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             isPaused = false;
         }
     }
