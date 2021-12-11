@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float turnSpeed = 1.0f;
-    public float JumpForce = 15f;
+    private float JumpForce;
     public float moveSpeed = 2.0f;
     public float minTurnAngle = -60.0f;
-    public float JumpTime = 1.5f;
+    public float JumpTime = 1f;
     public float maxTurnAngle = 60.0f;
     public Collider playerCollider;
     public GameStateManager state;
@@ -16,34 +16,42 @@ public class PlayerController : MonoBehaviour
     private float rotY;
     private float jumpTimer;
     public int fails = 0;
+    private float _groundHeight;
+    private bool isGrounded;
 
     // Gravity Scale editable on the inspector
     // providing a gravity scale per object
  
-    public float GravityScale = 2.0f;
+    public float GravityScale = -2.0f;
  
     // Global Gravity doesn't appear in the inspector. Modify it here in the code
     // (or via scripting) to define a different default gravity for all objects.
  
     private static float globalGravity = -9.81f;
 
-    private void Start() {
+    private void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GetComponent<Rigidbody>().useGravity = false;
+        _groundHeight = this.transform.position.y;
     }
     void Update(){
         Aim();
         Jump();
         Move();
+        GroundCheck();
+    }
+    private void GroundCheck(){
+        if (transform.position.y <= _groundHeight) isGrounded = true;
+        else isGrounded = false;
     }
     private void FixedUpdate() {
         Vector3 gravity = globalGravity * GravityScale * Vector3.up;
-        GetComponent<Rigidbody>().AddForce(gravity, ForceMode.Acceleration);
+        //GetComponent<Rigidbody>().AddForce(gravity, ForceMode.Acceleration);
     }
     private void Move(){
         //GetComponent<Rigidbody>().velocity = new Vector3 (0.0f, GetComponent<Rigidbody>().velocity.y, -FindObjectOfType<GameStateManager>().AlleySpeed);
-        transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed * Time.deltaTime);
+        transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed)* Time.deltaTime;
     }
     private void Aim(){
         rotY += Input.GetAxis("Mouse X") * turnSpeed;
@@ -59,19 +67,20 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayLength))
         {
             if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) {
-                Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
                 state.addScore();
             }
         }
     }
     private void Jump(){
-        if(Input.GetKey(KeyCode.Space) && jumpTimer <= 0){
-            jumpTimer = JumpTime;
-            GetComponent<Rigidbody>().velocity = new Vector3 (0.0f, JumpForce, 0.0f);
+        if(isGrounded && JumpForce <= 0) JumpForce = 0;
+        else JumpForce += GravityScale * Time.deltaTime;
+
+        if(Input.GetKey(KeyCode.Space) && isGrounded){
+            JumpForce = 10f;
         }
-        if(jumpTimer > 0){
-            jumpTimer -= Time.deltaTime;
-        }
+        //Debug.Log();
+        transform.Translate(new Vector3(0, JumpForce, 0) * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider collider)
     {

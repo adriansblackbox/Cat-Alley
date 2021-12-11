@@ -1816,6 +1816,7 @@ MonoBehaviour:
   End: {fileID: 1096390979}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats: []
 --- !u!1 &318996243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1866,10 @@ MonoBehaviour:
   End: {fileID: 1054382179}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats:
+  - {fileID: 95337098}
+  - {fileID: 534359390}
+  - {fileID: 972638842}
 --- !u!1001 &327511152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3690,6 +3695,7 @@ MonoBehaviour:
   End: {fileID: 561412074}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats: []
 --- !u!64 &472333779
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3924,6 +3930,7 @@ MonoBehaviour:
   End: {fileID: 1949833664}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats: []
 --- !u!64 &499547162
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7299,6 +7306,9 @@ MonoBehaviour:
   End: {fileID: 1620754927}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats:
+  - {fileID: 1561291905}
+  - {fileID: 974279475}
 --- !u!1 &959981262
 GameObject:
   m_ObjectHideFlags: 0
@@ -11972,7 +11982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619353719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.019, z: -0.3146}
+  m_LocalPosition: {x: 0, y: 1.13, z: -0.3146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1983999621}
@@ -11992,15 +12002,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 1.5
-  JumpForce: 7
   moveSpeed: 2
   minTurnAngle: -45
-  JumpTime: 0.7
+  JumpTime: 1
   maxTurnAngle: 45
   playerCollider: {fileID: 1619353726}
   state: {fileID: 1756430277}
   fails: 0
-  GravityScale: 2
+  GravityScale: -40
 --- !u!54 &1619353725
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12746,6 +12755,9 @@ MonoBehaviour:
   End: {fileID: 873937630}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats:
+  - {fileID: 300445575}
+  - {fileID: 1468890088}
 --- !u!1 &1688368355
 GameObject:
   m_ObjectHideFlags: 0
@@ -12795,6 +12807,9 @@ MonoBehaviour:
   End: {fileID: 370805635}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats:
+  - {fileID: 414960951}
+  - {fileID: 982253141}
 --- !u!1 &1694595999
 GameObject:
   m_ObjectHideFlags: 0
@@ -13823,6 +13838,9 @@ MonoBehaviour:
   End: {fileID: 1980823825}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats:
+  - {fileID: 515171256}
+  - {fileID: 1205092530}
 --- !u!1 &1828006380
 GameObject:
   m_ObjectHideFlags: 0
@@ -13952,6 +13970,7 @@ MonoBehaviour:
   End: {fileID: 959981263}
   WaitingZone: {fileID: 1777478134}
   StartWatingZone: {fileID: 1872961431}
+  Cats: []
 --- !u!64 &1831116479
 MeshCollider:
   m_ObjectHideFlags: 0

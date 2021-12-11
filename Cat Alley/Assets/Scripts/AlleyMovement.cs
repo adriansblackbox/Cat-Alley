@@ -10,6 +10,7 @@ public class AlleyMovement : MonoBehaviour
     public Transform End;
     public Transform WaitingZone;
     public Transform StartWatingZone;
+    public GameObject[] Cats;
 
     private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
