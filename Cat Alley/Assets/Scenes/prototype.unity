@@ -14948,16 +14948,17 @@ MonoBehaviour:
   lives: 4
   score: 0
   scoreText: {fileID: 1471025859}
-  cooldown: 0
-  ammo: 0
   points: 10
   player: {fileID: 1619353719}
   gameOverMenu: {fileID: 709653630}
+  canvas: {fileID: 1023940628}
   heart1: {fileID: 1024734343}
   heart2: {fileID: 635493689}
   heart3: {fileID: 1404575187}
   heart4: {fileID: 2030614922}
   AlleySpeed: 10
+  maxSpeed: 20
+  speedAdd: 0.5
 --- !u!4 &1756430278
 Transform:
   m_ObjectHideFlags: 0

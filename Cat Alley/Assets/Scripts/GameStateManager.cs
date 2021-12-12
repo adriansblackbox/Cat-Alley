@@ -9,17 +9,20 @@ public class GameStateManager : MonoBehaviour
     public int lives = 4;
     public int score = 0;
     public Text scoreText;
-    public int cooldown;
-    public int ammo;
     public int points;
     public GameObject player;
     public GameObject gameOverMenu;
+    public GameObject canvas;
     public Image heart1;
     public Image heart2;
     public Image heart3;
     public Image heart4;
     public float AlleySpeed = 15f;
+    public float maxSpeed;
+    public float speedAdd;
     private string scoreTextValue;
+    private float time;
+
     private void Start() {
         FindObjectOfType<resetTracker>().Spawn();
         player.GetComponent<PlayerController>().enabled = true;
@@ -33,10 +36,7 @@ public class GameStateManager : MonoBehaviour
         scoreText.text = scoreTextValue;
 
         this.checkHeart();
-
-       /* if(Input.GetKeyDown(KeyCode.Escape))
-        Application.Quit();
-       */
+        this.addSpeed();
     }
     public void addScore(){
         score += points;
@@ -46,6 +46,17 @@ public class GameStateManager : MonoBehaviour
         lives--;
     }
 
+    public void addSpeed(){
+        if (canvas.GetComponent<MenuScript>().isPaused && AlleySpeed < maxSpeed){
+        } else{
+            time+= Time.deltaTime;
+            if(time>10){
+                AlleySpeed += speedAdd;
+                time = 0;
+                Debug.Log("faster");
+            }
+        }
+    }
     public void checkHeart(){
         if (lives == 3){
             heart4.enabled = false;
