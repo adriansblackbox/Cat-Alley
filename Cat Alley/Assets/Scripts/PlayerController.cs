@@ -5,18 +5,24 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float turnSpeed = 1.0f;
-    private float JumpForce;
+    public float JumpForce = 8f;
+    public float DuckTime = 1f;
     public float moveSpeed = 2.0f;
     public float minTurnAngle = -30.0f;
     public float JumpTime = 1f;
     public float maxTurnAngle = 30.0f;
+    public float playerHeight = 1;
+    public Transform CameraTransform;
     public Collider playerCollider;
     public GameStateManager state;
+    private float timeDucked;
     private float rotX;
     private float rotY;
     private float jumpTimer;
     private float _groundHeight;
-    private bool isGrounded;
+    private bool isGrounded = true;
+    private Vector3 duckPosition;
+    private Vector3 defaultPosition;
 
     // Gravity Scale editable on the inspector
     // providing a gravity scale per object
@@ -31,25 +37,23 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GetComponent<Rigidbody>().useGravity = false;
         _groundHeight = this.transform.position.y;
     }
     void Update(){
         Aim();
+        Duck();
         Jump();
         Move();
         GroundCheck();
     }
     private void GroundCheck(){
-        if (transform.position.y <= _groundHeight) isGrounded = true;
+        if (transform.position.y - playerHeight <= _groundHeight) isGrounded = true;
         else isGrounded = false;
     }
     private void FixedUpdate() {
         Vector3 gravity = globalGravity * GravityScale * Vector3.up;
-        //GetComponent<Rigidbody>().AddForce(gravity, ForceMode.Acceleration);
     }
     private void Move(){
-        //GetComponent<Rigidbody>().velocity = new Vector3 (0.0f, GetComponent<Rigidbody>().velocity.y, -FindObjectOfType<GameStateManager>().AlleySpeed);
         transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed)* Time.deltaTime;
     }
     private void Aim(){
@@ -57,7 +61,7 @@ public class PlayerController : MonoBehaviour
         rotX += Input.GetAxis("Mouse Y") * -turnSpeed;
         rotX = Mathf.Clamp(rotX, minTurnAngle, maxTurnAngle);
         rotY = Mathf.Clamp(rotY, minTurnAngle, maxTurnAngle);
-        transform.eulerAngles = new Vector3(-rotX, rotY, 0);
+        CameraTransform.eulerAngles = new Vector3(rotX, rotY + 180, 0);
 
         Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f);
         float rayLength = 500f;
@@ -71,11 +75,27 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private void Duck(){
+        duckPosition = new Vector3(transform.position.x, 0.3f, transform.position.z);
+        if(Input.GetKeyDown(KeyCode.S)){
+            timeDucked = DuckTime;
+        }
+        if(timeDucked > 0){
+            this.transform.position = Vector3.Lerp(this.transform.position, duckPosition, Time.deltaTime * 10f);
+            timeDucked -= Time.deltaTime;
+        }else if(isGrounded){
+            defaultPosition = new Vector3(transform.position.x, 1.2f, transform.position.z);
+            this.transform.position = Vector3.Lerp(this.transform.position, defaultPosition, Time.deltaTime * 10f);
+        }
+    }
     private void Jump(){
-        if(isGrounded && JumpForce <= 0) JumpForce = 0;
-        else JumpForce += GravityScale * Time.deltaTime;
+        if(isGrounded && JumpForce <= 0) 
+            JumpForce = 0;
+        else 
+            JumpForce += GravityScale * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.Space) && isGrounded){
+        if(Input.GetKey(KeyCode.W) && isGrounded){
+            timeDucked = 0;
             JumpForce = 8f;
         }
         transform.Translate(new Vector3(0, JumpForce, 0) * Time.deltaTime);
