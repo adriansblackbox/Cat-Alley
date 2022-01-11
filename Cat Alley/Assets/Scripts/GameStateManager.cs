@@ -25,7 +25,9 @@ public class GameStateManager : MonoBehaviour
 
     private void Start() {
         FindObjectOfType<resetTracker>().Spawn();
-        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     void Update()
     {
