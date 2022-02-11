@@ -11,6 +11,8 @@ public class AlleyMovement : MonoBehaviour
     public Transform WaitingZone;
     public Transform StartWatingZone;
     public GameObject[] Cats;
+    public GameObject[] OverHeadObstacles;
+    public GameObject[] GroundObstacles;
     public Transform alleyTransform;
 
     private void Start() {
