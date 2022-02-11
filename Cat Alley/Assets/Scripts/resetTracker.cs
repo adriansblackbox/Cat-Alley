@@ -24,6 +24,9 @@ public class resetTracker : MonoBehaviour
     private void EnableCats(){
         randInts.Clear();
         generateNums();
+        foreach(int num in randInts){
+            Debug.Log(num);
+        }
         for(int i = 0; i < 3; i++){
            GameObject cat = Alleys[alleySelected].GetComponent<AlleyMovement>().Cats[randInts[i]];
            cat.SetActive(true);
