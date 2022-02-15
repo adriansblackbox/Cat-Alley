@@ -7,18 +7,14 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 1.0f;
     public float JumpForce = 8f;
     public float DuckTime = 1f;
-    public float moveSpeed = 2.0f;
     public float minTurnAngle = -30.0f;
-    public float JumpTime = 1f;
     public float maxTurnAngle = 30.0f;
     public float playerHeight = 1;
     public Transform CameraTransform;
-    public Collider playerCollider;
     public GameStateManager state;
     private float timeDucked;
     private float rotX;
     private float rotY;
-    private float jumpTimer;
     private float _groundHeight;
     private bool isGrounded = true;
     private Vector3 duckPosition;
