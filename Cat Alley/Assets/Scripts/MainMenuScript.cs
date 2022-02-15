@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject GOMenu;
+    public GameObject gStateManager;
     public bool isPaused;
     public bool instructionsOpened;
     public bool optionsOpened;
@@ -35,6 +36,7 @@ public class MainMenuScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             isPaused = true;
+            gStateManager.GetComponent<GameStateManager>().inGame = false;
         } else
         {
             player.GetComponent<PlayerController>().enabled = true;
@@ -43,6 +45,7 @@ public class MainMenuScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             isPaused = false;
+            gStateManager.GetComponent<GameStateManager>().inGame = true;
         }
     }
 
@@ -115,6 +118,7 @@ public class MainMenuScript : MonoBehaviour
     {
         mainMenu.SetActive(false);
         player.GetComponent<PlayerController>().enabled = true;
+        gStateManager.GetComponent<GameStateManager>().inGame = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isPaused = false;

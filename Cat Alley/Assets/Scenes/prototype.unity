@@ -252,6 +252,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 262991344}
   mainMenu: {fileID: 1143673708}
   GOMenu: {fileID: 709653630}
+  gStateManager: {fileID: 1756430276}
   isPaused: 0
   instructionsOpened: 0
   optionsOpened: 0
@@ -4472,7 +4473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627302965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1756430277}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &627302965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11590,13 +11603,10 @@ MonoBehaviour:
   turnSpeed: 1.5
   JumpForce: 5.5
   DuckTime: 1
-  moveSpeed: 2
   minTurnAngle: -25
-  JumpTime: 1
   maxTurnAngle: 25
   playerHeight: 0
   CameraTransform: {fileID: 1983999621}
-  playerCollider: {fileID: 0}
   state: {fileID: 1756430277}
   GravityScale: -19
 --- !u!54 &1619353725
@@ -12792,6 +12802,7 @@ MonoBehaviour:
   heart4: {fileID: 2030614922}
   AlleySpeed: 10
   maxSpeed: 20
+  inGame: 0
   speedAdd: 0.5
 --- !u!4 &1756430278
 Transform:

@@ -19,6 +19,7 @@ public class GameStateManager : MonoBehaviour
     public Image heart4;
     public float AlleySpeed = 15f;
     public float maxSpeed;
+    public bool inGame;
     public float speedAdd;
     private string scoreTextValue;
     private float time;
@@ -28,6 +29,7 @@ public class GameStateManager : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        inGame = false;
     }
     void Update()
     {
@@ -38,7 +40,10 @@ public class GameStateManager : MonoBehaviour
         scoreText.text = scoreTextValue;
 
         this.checkHeart();
-        this.addSpeed();
+        if (inGame == true)
+        {
+            this.addSpeed();
+        }
     }
     public void addScore(){
         score += points;
@@ -54,6 +59,7 @@ public class GameStateManager : MonoBehaviour
             time+= Time.deltaTime;
             if(time>10){
                 AlleySpeed += speedAdd;
+                Debug.Log("speed" + AlleySpeed);
                 time = 0;
             }
         }
