@@ -17,6 +17,7 @@ public class AlleyMovement : MonoBehaviour
 
     private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
+
     }
     void Update()
     {
@@ -27,6 +28,12 @@ public class AlleyMovement : MonoBehaviour
     }
     private void Sleep(){
         if(!gameObject.CompareTag("StartAlley")){ 
+            foreach(GameObject obs in OverHeadObstacles){
+                obs.SetActive(false);
+            }
+            foreach(GameObject obs in GroundObstacles){
+                obs.SetActive(false);
+            }
             transform.position = WaitingZone.position;
             FindObjectOfType<resetTracker>().Alleys.Add(this.gameObject);
             GetComponent<AlleyMovement>().enabled = false;

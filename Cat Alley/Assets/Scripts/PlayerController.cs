@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float playerHeight = 1;
     public Transform CameraTransform;
     public GameStateManager state;
+    public GameObject crossHair;
+    public Sprite greenCrosshair, redCrosshair;
     private float timeDucked;
     private float rotX;
     private float rotY;
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
  
     private static float globalGravity = -9.81f;
 
-    private void Awake() {
+    private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _groundHeight = this.transform.position.y;
@@ -43,8 +46,9 @@ public class PlayerController : MonoBehaviour
         GroundCheck();
     }
     private void GroundCheck(){
-        if (transform.position.y - playerHeight <= _groundHeight) isGrounded = true;
+        if (transform.position.y <= _groundHeight) isGrounded = true;
         else isGrounded = false;
+        
     }
     private void FixedUpdate() {
         Vector3 gravity = globalGravity * GravityScale * Vector3.up;
@@ -60,14 +64,19 @@ public class PlayerController : MonoBehaviour
         CameraTransform.eulerAngles = new Vector3(rotX, rotY + 180, 0);
 
         Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f);
-        float rayLength = 500f;
+        float rayLength = 20f;
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayLength))
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.gameObject.CompareTag("cat")) {
-                hit.transform.gameObject.SetActive(false);
-                state.addScore();
+            if(hit.transform.gameObject.CompareTag("cat")){
+                crossHair.GetComponent<Image>().sprite = greenCrosshair;
+                if(Input.GetKeyDown(KeyCode.Mouse0)){
+                    hit.transform.gameObject.SetActive(false);
+                    state.addScore();
+                }
+            }else{
+                crossHair.GetComponent<Image>().sprite = redCrosshair;
             }
         }
     }
@@ -80,7 +89,7 @@ public class PlayerController : MonoBehaviour
             this.transform.position = Vector3.Lerp(this.transform.position, duckPosition, Time.deltaTime * 10f);
             timeDucked -= Time.deltaTime;
         }else if(isGrounded){
-            defaultPosition = new Vector3(transform.position.x, 1.2f, transform.position.z);
+            defaultPosition = new Vector3(transform.position.x, _groundHeight, transform.position.z);
             this.transform.position = Vector3.Lerp(this.transform.position, defaultPosition, Time.deltaTime * 10f);
         }
     }
@@ -90,7 +99,7 @@ public class PlayerController : MonoBehaviour
         else 
             JumpForce += GravityScale * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.W) && isGrounded){
+        if(Input.GetKeyDown(KeyCode.W) && isGrounded){
             timeDucked = 0;
             JumpForce = 8f;
         }
