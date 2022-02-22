@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     public GameObject crossHair;
     public Sprite greenCrosshair, redCrosshair;
     private float timeDucked;
-    private float rotX;
-    private float rotY;
+    public float rotX;
+    public float rotY;
     private float _groundHeight;
     private bool isGrounded = true;
     private Vector3 duckPosition;
