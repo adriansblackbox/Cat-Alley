@@ -15,15 +15,11 @@ public class resetTracker : MonoBehaviour
         alleySelected = Random.Range(0, Alleys.Count);
         Alleys[alleySelected].transform.position = currentAlley.GetComponent<AlleyMovement>().End.transform.position;
         Alleys[alleySelected].GetComponent<AlleyMovement>().enabled = true;
-        if(Alleys[alleySelected].GetComponent<AlleyMovement>().Cats.Length >= 3){
-            EnableCats(3);
-        }else{
-            // enable cats (how ever many cats are in turn alleys)
+        if(Alleys[alleySelected].GetComponent<AlleyMovement>().Cats.Length >= 2){
+            EnableCats(2);
         }
         if(Alleys[alleySelected].GetComponent<AlleyMovement>().OverHeadObstacles.Length == 3){
             EnableObstacles(3);
-        }else{
-            EnableObstacles(2);
         }
         currentAlley = Alleys[alleySelected];
         Alleys.Remove(Alleys[alleySelected]);
