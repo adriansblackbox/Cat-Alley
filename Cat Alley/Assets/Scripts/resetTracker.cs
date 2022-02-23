@@ -23,9 +23,8 @@ public class resetTracker : MonoBehaviour
         if(Alleys[alleySelected].GetComponent<AlleyMovement>().OverHeadObstacles.Length == 3){
             EnableObstacles(3);
         }else{
-            // enable OBS (how ever many cats are in turn alleys)
+            EnableObstacles(2);
         }
-        //EnableObstacles(3);
         currentAlley = Alleys[alleySelected];
         Alleys.Remove(Alleys[alleySelected]);
     }
@@ -47,6 +46,12 @@ public class resetTracker : MonoBehaviour
             }else{
                 //spawn a ground obs
                 Alleys[alleySelected].GetComponent<AlleyMovement>().GroundObstacles[i].SetActive(true);
+            }
+            int nullChance = Random.Range(0, 101);
+            // there is a 20 percent chance that the obstacle will be sitched off to
+            // increase randomness, and enhance gameplay
+            if(nullChance <= 20){
+                Alleys[alleySelected].GetComponent<AlleyMovement>().OverHeadObstacles[i].SetActive(false);
             }
         }
     }

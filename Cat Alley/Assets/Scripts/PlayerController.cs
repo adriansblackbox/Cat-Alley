@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameStateManager state;
     public GameObject crossHair;
     public Sprite greenCrosshair, redCrosshair;
+    public LayerMask catLayer;
     private float timeDucked;
     public float rotX;
     public float rotY;
@@ -67,17 +68,15 @@ public class PlayerController : MonoBehaviour
         float rayLength = 20f;
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, rayLength))
+        if (Physics.Raycast(ray, out hit, rayLength, catLayer))
         {
-            if(hit.transform.gameObject.CompareTag("cat")){
-                crossHair.GetComponent<Image>().sprite = greenCrosshair;
-                if(Input.GetKeyDown(KeyCode.Mouse0)){
-                    hit.transform.gameObject.SetActive(false);
-                    state.addScore();
-                }
-            }else{
-                crossHair.GetComponent<Image>().sprite = redCrosshair;
+            crossHair.GetComponent<Image>().sprite = greenCrosshair;
+            if(Input.GetKeyDown(KeyCode.Mouse0)){
+                hit.transform.gameObject.SetActive(false);
+                state.addScore();
             }
+        }else{
+             crossHair.GetComponent<Image>().sprite = redCrosshair;
         }
     }
     private void Duck(){
