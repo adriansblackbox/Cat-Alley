@@ -16,8 +16,7 @@ public class CatScript : MonoBehaviour
 
     void Update()
     {
-        if(catTransform.position.z >= playerTransform.position.z){
-            Debug.Log("MEOOOOWWW");
+        if(catTransform.position.z >= playerTransform.position.z + 5f){
             state.minusLive();
             this.enabled = false;
         }
