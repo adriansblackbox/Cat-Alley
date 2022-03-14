@@ -5,7 +5,7 @@ using UnityEngine;
 public class Right_Turn : MonoBehaviour
 {
     private bool turnRange = false;
-    private bool turned = false;
+    public bool turned = false;
     public float TurnSpeed = 200f;
     public bool isRightTurn = true;
     public GameObject Arrow, Wall;

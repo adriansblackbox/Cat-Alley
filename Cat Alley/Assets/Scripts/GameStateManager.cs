@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameStateManager : MonoBehaviour
 {
-    public int lives = 4;
+    public int lives = 2;
     public int score = 0;
     public Text scoreText;
     public int points;
     public GameObject player;
     public GameObject gameOverMenu;
     public GameObject canvas;
-    public Image heart1;
-    public Image heart2;
-    public Image heart3;
-    public Image heart4;
     public float AlleySpeed = 15f;
     public float maxSpeed;
     public bool inGame;
     public float speedAdd;
     private string scoreTextValue;
     private float time;
+    private bool regeningHealth = false;
+    public GameObject postProcessing;
+    private Vignette vignette;
+    
 
     private void Start() {
         FindObjectOfType<resetTracker>().Spawn();
@@ -30,16 +32,17 @@ public class GameStateManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         inGame = false;
+        postProcessing.GetComponent<Volume>().profile.TryGet(out vignette);
     }
     void Update()
     {
         if(lives <= 0){
             gameOver();
-        } 
+        }else if(lives < 2 && !regeningHealth){
+            StartCoroutine(regenHealth());
+        }
         scoreTextValue = "Score: " + score;
         scoreText.text = scoreTextValue;
-
-        this.checkHeart();
         if (inGame == true)
         {
             this.addSpeed();
@@ -64,20 +67,6 @@ public class GameStateManager : MonoBehaviour
             }
         }
     }
-    public void checkHeart(){
-        if (lives == 3){
-            heart4.enabled = false;
-        }
-        if (lives == 2){
-            heart3.enabled = false;
-        }
-        if (lives == 1){
-            heart2.enabled = false;
-        }
-        if (lives == 0){
-            heart1.enabled = false;
-        }
-    }
 
     public void restart(){
         SceneManager.LoadScene("prototype");
@@ -88,5 +77,16 @@ public class GameStateManager : MonoBehaviour
         Cursor.visible = true;
         player.GetComponent<PlayerController>().enabled = false;
         gameOverMenu.SetActive(true);
+    }
+    private IEnumerator regenHealth(){
+        regeningHealth = true;
+        vignette.intensity.value = 0.5f;
+        Debug.Log("OWW");
+        yield return new WaitForSeconds(5f);
+        vignette.intensity.value = 0f;
+        lives += 1;
+        regeningHealth = false;
+        Debug.Log("Okay");
+        yield return null;
     }
 }
