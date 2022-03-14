@@ -8,6 +8,8 @@ public class MainMenuScript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject GOMenu;
+    public GameObject Score;
+     public GameObject CrossHair;
     public GameObject gStateManager;
     public bool isPaused;
     public bool instructionsOpened;
@@ -15,7 +17,8 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Score.SetActive(false);
+        CrossHair.SetActive(false);
     }
 
     // Update is called once per frame
@@ -116,6 +119,8 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        Score.SetActive(true);
+        CrossHair.SetActive(true);
         mainMenu.SetActive(false);
         player.GetComponent<PlayerController>().enabled = true;
         gStateManager.GetComponent<GameStateManager>().inGame = true;
