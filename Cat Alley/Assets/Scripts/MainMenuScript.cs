@@ -14,9 +14,11 @@ public class MainMenuScript : MonoBehaviour
     public bool isPaused;
     public bool instructionsOpened;
     public bool optionsOpened;
+    private bool gameStarted;
     // Start is called before the first frame update
     void Start()
     {
+        gameStarted = false;
         Score.SetActive(false);
         CrossHair.SetActive(false);
     }
@@ -24,7 +26,7 @@ public class MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
         {
             ToggleMenu();
         }
@@ -119,6 +121,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        gameStarted = true;
         Score.SetActive(true);
         CrossHair.SetActive(true);
         mainMenu.SetActive(false);

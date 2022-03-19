@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float turnSpeed = 1.0f;
+    public float MouseSensitivity = 1.0f;
     public float JumpForce = 8f;
     public float DuckTime = 1f;
     public float minTurnAngle = -30.0f;
@@ -58,8 +58,9 @@ public class PlayerController : MonoBehaviour
         transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed)* Time.deltaTime;
     }
     private void Aim(){
-        rotY += Input.GetAxis("Mouse X") * turnSpeed;
-        rotX += Input.GetAxis("Mouse Y") * -turnSpeed;
+        MouseSensitivity = FindObjectOfType<GameStateManager>().MouseSensitivitySlider.value;
+        rotY += Input.GetAxis("Mouse X") * MouseSensitivity;
+        rotX += Input.GetAxis("Mouse Y") * -MouseSensitivity;
         rotX = Mathf.Clamp(rotX, minTurnAngle - 10f, maxTurnAngle);
         rotY = Mathf.Clamp(rotY, minTurnAngle, maxTurnAngle);
         CameraTransform.eulerAngles = new Vector3(rotX, rotY + 180, 0);
@@ -111,4 +112,5 @@ public class PlayerController : MonoBehaviour
             state.minusLive();
         }
     }
+
 }

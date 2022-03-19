@@ -24,6 +24,8 @@ public class GameStateManager : MonoBehaviour
     private bool regeningHealth = false;
     public GameObject postProcessing;
     private Vignette vignette;
+    public Text MouseSensitivityText;
+    public Slider MouseSensitivitySlider;
     
 
     private void Start() {
@@ -33,6 +35,9 @@ public class GameStateManager : MonoBehaviour
         Cursor.visible = true;
         inGame = false;
         postProcessing.GetComponent<Volume>().profile.TryGet(out vignette);
+        // Sets saved mosue sensitivity
+        MouseSensitivitySlider.value = PlayerPrefs.GetFloat("Mouse Sensitivity");
+        MouseSensitivityText.text =  MouseSensitivitySlider.value.ToString();
     }
     void Update()
     {
@@ -88,5 +93,10 @@ public class GameStateManager : MonoBehaviour
         regeningHealth = false;
         Debug.Log("Okay");
         yield return null;
+    }
+     public void OnMouseSensitivityChange(){
+        PlayerPrefs.SetFloat("Mouse Sensitivity", MouseSensitivitySlider.value);
+        MouseSensitivityText.text =  MouseSensitivitySlider.value.ToString();
+        PlayerPrefs.Save();
     }
 }
