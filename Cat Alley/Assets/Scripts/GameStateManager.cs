@@ -11,6 +11,7 @@ public class GameStateManager : MonoBehaviour
     public int lives = 2;
     public int score = 0;
     public Text scoreText;
+    public Text highScoreText;
     public int points;
     public GameObject player;
     public GameObject gameOverMenu;
@@ -26,9 +27,11 @@ public class GameStateManager : MonoBehaviour
     private Vignette vignette;
     public Text MouseSensitivityText;
     public Slider MouseSensitivitySlider;
+    private float highScore = 0;
     
 
     private void Start() {
+        highScore = PlayerPrefs.GetFloat("High Score");
         FindObjectOfType<resetTracker>().Spawn();
         player.GetComponent<PlayerController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
@@ -46,8 +49,15 @@ public class GameStateManager : MonoBehaviour
         }else if(lives < 2 && !regeningHealth){
             StartCoroutine(regenHealth());
         }
+        // handles score counting
         scoreTextValue = "Score: " + score;
         scoreText.text = scoreTextValue;
+         if(score >= highScore){
+            highScore = score;
+            PlayerPrefs.SetFloat("High Score", highScore);
+        }
+        highScoreText.text = "Best: " + highScore.ToString();
+        // handles difficulty over time
         if (inGame == true)
         {
             this.addSpeed();
@@ -82,15 +92,20 @@ public class GameStateManager : MonoBehaviour
         Cursor.visible = true;
         player.GetComponent<PlayerController>().enabled = false;
         gameOverMenu.SetActive(true);
+        PlayerPrefs.Save();
     }
     private IEnumerator regenHealth(){
         regeningHealth = true;
         vignette.intensity.value = 0.5f;
         Debug.Log("OWW");
         yield return new WaitForSeconds(5f);
-        vignette.intensity.value = 0f;
-        lives += 1;
-        regeningHealth = false;
+        if(lives > 0){
+            vignette.intensity.value = 0f;
+            lives += 1;
+            regeningHealth = false;
+        }else{
+            // Game Over Case
+        }
         Debug.Log("Okay");
         yield return null;
     }
