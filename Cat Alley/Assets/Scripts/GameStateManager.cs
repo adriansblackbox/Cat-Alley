@@ -28,10 +28,12 @@ public class GameStateManager : MonoBehaviour
     public Text MouseSensitivityText;
     public Slider MouseSensitivitySlider;
     private float highScore = 0;
+    public Text HighScoreBoard;
     
 
     private void Start() {
         highScore = PlayerPrefs.GetFloat("High Score");
+        HighScoreBoard.text = "Best Score: " + highScore.ToString();
         FindObjectOfType<resetTracker>().Spawn();
         player.GetComponent<PlayerController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
