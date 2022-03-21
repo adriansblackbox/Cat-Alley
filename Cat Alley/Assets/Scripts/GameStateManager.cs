@@ -62,7 +62,7 @@ public class GameStateManager : MonoBehaviour
     {
         if(lives <= 0){
             gameOver();
-        }else if(lives < 2 && !regeningHealth){
+        }else if(lives < 2 && !regeningHealth && !GameOver){
             StartCoroutine(regenHealth());
         }
         // handles score counting

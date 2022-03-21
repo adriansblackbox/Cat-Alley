@@ -14,7 +14,7 @@ public class Right_Turn : MonoBehaviour
         if((turnRange && Input.GetKeyDown(KeyCode.D) && isRightTurn) || (turnRange && Input.GetKeyDown(KeyCode.A) && !isRightTurn)){
             turned = true;
         }
-        if(turned){
+        if(turned && !FindObjectOfType<GameStateManager>().GameOver){
             if(isRightTurn)
                 this.transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, -90f, 0f), Time.deltaTime * TurnSpeed);
             else
