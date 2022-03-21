@@ -88,7 +88,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void addSpeed(){
-        if (FindObjectOfType<MainMenuScript>().isPaused && AlleySpeed < maxSpeed){
+        if (!FindObjectOfType<MainMenuScript>().isPaused && AlleySpeed < maxSpeed){
             time+= Time.deltaTime;
             if(time>10){
                 AlleySpeed += speedAdd;
