@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &29945555 stripped
@@ -939,6 +943,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &53874425 stripped
@@ -1208,6 +1216,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &79787415 stripped
@@ -2915,6 +2927,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &311152265 stripped
@@ -4291,6 +4307,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &420605384 stripped
@@ -4468,6 +4488,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &435464354 stripped
@@ -6243,6 +6267,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &649675004 stripped
@@ -6928,6 +6956,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &728908764 stripped
@@ -7815,6 +7847,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &793600299 stripped
@@ -8121,6 +8157,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &806626712 stripped
@@ -10105,6 +10145,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1058338656 stripped
@@ -11391,6 +11435,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1188246987 stripped
@@ -12367,6 +12415,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1234011941 stripped
@@ -13048,6 +13100,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1287726508 stripped
@@ -13515,6 +13571,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1367491297 stripped
@@ -13688,6 +13748,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1378224780 stripped
@@ -13779,6 +13843,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1378916853 stripped
@@ -13874,6 +13942,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1386514658 stripped
@@ -14185,6 +14257,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1431562606 stripped
@@ -14580,6 +14656,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1473626803 stripped
@@ -15799,6 +15879,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1619518331 stripped
@@ -18360,6 +18444,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1848996823 stripped
@@ -18533,6 +18621,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1891635349 stripped
@@ -19197,6 +19289,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1961122744 stripped
@@ -19519,6 +19615,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1966331072 stripped
@@ -19610,6 +19710,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1969319366 stripped
@@ -19783,6 +19887,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &1979628465 stripped
@@ -20092,6 +20200,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &2003893165 stripped
@@ -20187,6 +20299,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &2006692807 stripped
@@ -20706,6 +20822,10 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
 --- !u!4 &2035607305 stripped
@@ -21706,5 +21826,9 @@ PrefabInstance:
       propertyPath: GameState
       value: 
       objectReference: {fileID: 1756430277}
+    - target: {fileID: 8391841375720802420, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
+      propertyPath: AgroDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
