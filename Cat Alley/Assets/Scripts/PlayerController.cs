@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
         {
             crossHair.GetComponent<Image>().sprite = greenCrosshair;
             if(Input.GetKeyDown(KeyCode.Mouse0)){
-                hit.transform.gameObject.SetActive(false);
+                //hit.transform.gameObject.SetActive(false);
+                hit.transform.gameObject.GetComponent<CatScript>().State = "Satisfied";
                 state.addScore();
             }
         }else{

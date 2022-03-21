@@ -21,7 +21,7 @@ public class AlleyMovement : MonoBehaviour
     }
     void Update()
     {
-        if(End.position.z > _player.transform.position.z){
+        if(End.position.z > _player.transform.position.z + 5f){
             alleyTransform.eulerAngles = new Vector3(0f,0f,0f);
             Sleep();
         }
@@ -33,6 +33,12 @@ public class AlleyMovement : MonoBehaviour
             }
             foreach(GameObject obs in GroundObstacles){
                 obs.SetActive(false);
+            }
+            foreach(GameObject cat in Cats){
+                if(cat.activeSelf){
+                    cat.GetComponent<CatScript>().State = "Idle";
+                    cat.SetActive(false);
+                }
             }
             transform.position = WaitingZone.position;
             FindObjectOfType<resetTracker>().Alleys.Add(this.gameObject);

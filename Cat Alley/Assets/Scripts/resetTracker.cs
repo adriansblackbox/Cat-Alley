@@ -31,6 +31,7 @@ public class resetTracker : MonoBehaviour
            GameObject cat = Alleys[alleySelected].GetComponent<AlleyMovement>().Cats[randInts[i]];
            cat.SetActive(true);
            cat.GetComponent<CatScript>().enabled = true;
+            cat.GetComponent<CatScript>().State = "Idle";
         }
     }
     private void EnableObstacles(int numObs){
