@@ -11,6 +11,10 @@ public class CatScript : MonoBehaviour
     private Transform playerTransform;
     private SpriteRenderer catSR;
     public Sprite catIdle, catAgro, catSatisfied;
+    public GameObject PointText;
+    private GameObject PointObject;
+    public Transform PointStart, PointEnd;
+    public bool PointMade = false;
 
     void Start()
     {
@@ -28,15 +32,26 @@ public class CatScript : MonoBehaviour
             }else{
                 State = "Idle";
             }
+        }else{
+            handlePointAnimation();
         }
         if(catTransform.position.z >= playerTransform.position.z + 1f && Mathf.Abs(catTransform.position.x) <= playerTransform.position.x + 5){
             if(State == "Agro"){
                 GameState.minusLive();
                 GameState.Scratched = true;
             }
+            Destroy(PointObject);
             this.enabled = false;
         }
         handleAnimation();
+    }
+    private void handlePointAnimation(){
+        if(!PointMade){
+            PointObject = GameObject.Instantiate(PointText, PointStart.position, Quaternion.identity);
+            PointMade = true;
+        }else if(PointObject.transform.position != PointEnd.position){
+           PointObject.transform.position = Vector3.Lerp(PointObject.transform.position, PointEnd.position, Time.deltaTime * 10f);
+        }
     }
     public void handleAnimation(){
         switch(State){

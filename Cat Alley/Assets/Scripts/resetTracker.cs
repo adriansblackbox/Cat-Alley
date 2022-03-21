@@ -28,10 +28,11 @@ public class resetTracker : MonoBehaviour
         randInts.Clear();
         generateNums();
         for(int i = 0; i < numCats; i++){
-           GameObject cat = Alleys[alleySelected].GetComponent<AlleyMovement>().Cats[randInts[i]];
-           cat.SetActive(true);
-           cat.GetComponent<CatScript>().enabled = true;
+            GameObject cat = Alleys[alleySelected].GetComponent<AlleyMovement>().Cats[randInts[i]];
+            cat.SetActive(true);
+            cat.GetComponent<CatScript>().enabled = true;
             cat.GetComponent<CatScript>().State = "Idle";
+            cat.GetComponent<CatScript>().PointMade = false;
         }
     }
     private void EnableObstacles(int numObs){
