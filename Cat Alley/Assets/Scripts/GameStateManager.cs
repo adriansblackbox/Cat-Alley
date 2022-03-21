@@ -29,9 +29,21 @@ public class GameStateManager : MonoBehaviour
     public Slider MouseSensitivitySlider;
     private float highScore = 0;
     public Text HighScoreBoard;
+    public bool Scratched = false;
+    public GameObject Scratch;
+    public bool GameOver;
     
 
     private void Start() {
+        /*
+        if (PlayerPrefs.GetInt("FIRSTTIMEOPENING", 1) == 1)
+        {
+            //Set first time opening to false
+            PlayerPrefs.SetInt("FIRSTTIMEOPENING", 0);
+            //Do your stuff here
+            PlayerPrefs.DeleteAll();
+        }
+        */
         highScore = PlayerPrefs.GetFloat("High Score");
         HighScoreBoard.text = "Best Score: " + highScore.ToString();
         FindObjectOfType<resetTracker>().Spawn();
@@ -43,6 +55,8 @@ public class GameStateManager : MonoBehaviour
         // Sets saved mosue sensitivity
         MouseSensitivitySlider.value = PlayerPrefs.GetFloat("Mouse Sensitivity");
         MouseSensitivityText.text =  MouseSensitivitySlider.value.ToString();
+        Scratch.SetActive(false);
+        GameOver = false;
     }
     void Update()
     {
@@ -74,8 +88,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void addSpeed(){
-        if (canvas.GetComponent<MenuScript>().isPaused && AlleySpeed < maxSpeed){
-        } else{
+        if (FindObjectOfType<MainMenuScript>().isPaused && AlleySpeed < maxSpeed){
             time+= Time.deltaTime;
             if(time>10){
                 AlleySpeed += speedAdd;
@@ -94,21 +107,25 @@ public class GameStateManager : MonoBehaviour
         Cursor.visible = true;
         player.GetComponent<PlayerController>().enabled = false;
         gameOverMenu.SetActive(true);
+        Scratched = false;
+        Scratch.SetActive(false);
+        vignette.intensity.value = 0f;
         PlayerPrefs.Save();
+        GameOver = true;
     }
     private IEnumerator regenHealth(){
         regeningHealth = true;
         vignette.intensity.value = 0.5f;
-        Debug.Log("OWW");
+        if(Scratched)
+            Scratch.SetActive(true);
         yield return new WaitForSeconds(5f);
-        if(lives > 0){
             vignette.intensity.value = 0f;
             lives += 1;
             regeningHealth = false;
-        }else{
-            // Game Over Case
-        }
-        Debug.Log("Okay");
+            if(Scratched){
+                Scratched = false;
+                Scratch.SetActive(false);
+            }
         yield return null;
     }
      public void OnMouseSensitivityChange(){

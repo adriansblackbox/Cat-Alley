@@ -29,9 +29,10 @@ public class CatScript : MonoBehaviour
                 State = "Idle";
             }
         }
-        if(catTransform.position.z >= playerTransform.position.z + 2f){
+        if(catTransform.position.z >= playerTransform.position.z + 1f && Mathf.Abs(catTransform.position.x) <= playerTransform.position.x + 5){
             if(State == "Agro"){
                 GameState.minusLive();
+                GameState.Scratched = true;
             }
             this.enabled = false;
         }

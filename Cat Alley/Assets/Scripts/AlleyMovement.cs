@@ -21,7 +21,7 @@ public class AlleyMovement : MonoBehaviour
     }
     void Update()
     {
-        if(End.position.z > _player.transform.position.z + 5f){
+        if(End.position.z > _player.transform.position.z + 10f){
             alleyTransform.eulerAngles = new Vector3(0f,0f,0f);
             Sleep();
         }

@@ -26,9 +26,11 @@ public class MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted && !gStateManager.GetComponent<GameStateManager>().GameOver)
         {
             ToggleMenu();
+        }else if(gStateManager.GetComponent<GameStateManager>().GameOver){
+            CrossHair.SetActive(false);
         }
     }
 
