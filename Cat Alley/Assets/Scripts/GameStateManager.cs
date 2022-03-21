@@ -92,7 +92,6 @@ public class GameStateManager : MonoBehaviour
             time+= Time.deltaTime;
             if(time>10){
                 AlleySpeed += speedAdd;
-                Debug.Log("speed" + AlleySpeed);
                 time = 0;
             }
         }

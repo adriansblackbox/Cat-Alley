@@ -15,7 +15,6 @@ public class Right_Turn : MonoBehaviour
             turned = true;
         }
         if(turned){
-            Wall.SetActive(false);
             if(isRightTurn)
                 this.transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, -90f, 0f), Time.deltaTime * TurnSpeed);
             else
@@ -30,7 +29,6 @@ public class Right_Turn : MonoBehaviour
     }
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            Wall.SetActive(true);
             Arrow.GetComponent<SpriteRenderer>().sprite = RedArrow;
             turnRange = false;
             turned = false;
