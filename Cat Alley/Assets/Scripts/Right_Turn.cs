@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Right_Turn : MonoBehaviour
 {
-    private bool turnRange = false;
+    public bool turnRange = false;
     public bool turned = false;
     public float TurnSpeed = 200f;
     public bool isRightTurn = true;
@@ -27,11 +27,9 @@ public class Right_Turn : MonoBehaviour
             Arrow.GetComponent<SpriteRenderer>().sprite = GreenArrow;
         }
     }
-    private void OnTriggerExit(Collider other) {
-        if(other.gameObject.CompareTag("Player")){
-            Arrow.GetComponent<SpriteRenderer>().sprite = RedArrow;
-            turnRange = false;
-            turned = false;
-        }
+    public void ResetTurn() {
+        Arrow.GetComponent<SpriteRenderer>().sprite = RedArrow;
+        turnRange = false;
+        turned = false;
     }
 }

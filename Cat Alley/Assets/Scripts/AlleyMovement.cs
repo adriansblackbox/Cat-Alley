@@ -14,6 +14,7 @@ public class AlleyMovement : MonoBehaviour
     public GameObject[] OverHeadObstacles;
     public GameObject[] GroundObstacles;
     public Transform alleyTransform;
+    public bool isTurnAlley = false;
 
     private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -21,8 +22,11 @@ public class AlleyMovement : MonoBehaviour
     }
     void Update()
     {
-        if(End.position.z > _player.transform.position.z + 10f){
+        if(End.position.z > _player.transform.position.z + 20f){
             alleyTransform.eulerAngles = new Vector3(0f,0f,0f);
+            if(isTurnAlley){
+                this.gameObject.GetComponentInChildren<Right_Turn>().ResetTurn();
+            }
             Sleep();
         }
     }
