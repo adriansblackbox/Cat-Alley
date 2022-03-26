@@ -72,13 +72,13 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayLength, catLayer))
         {
             crossHair.GetComponent<Image>().sprite = greenCrosshair;
-            if(Input.GetKeyDown(KeyCode.Mouse0)){
-                //hit.transform.gameObject.SetActive(false);
+            if(Input.GetKeyDown(KeyCode.Mouse0) && !FindObjectOfType<GunMovement>().isShooting){
                 hit.transform.gameObject.GetComponent<CatScript>().State = "Satisfied";
+                hit.transform.gameObject.GetComponent<Collider>().enabled = false;
                 state.addScore();
             }
         }else{
-             crossHair.GetComponent<Image>().sprite = redCrosshair;
+            crossHair.GetComponent<Image>().sprite = redCrosshair;
         }
     }
     private void Duck(){
