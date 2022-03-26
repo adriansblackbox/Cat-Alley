@@ -31,6 +31,7 @@ public class MainMenuScript : MonoBehaviour
             ToggleMenu();
         }else if(gStateManager.GetComponent<GameStateManager>().GameOver){
             CrossHair.SetActive(false);
+            FindObjectOfType<GunMovement>().enabled = false;
         }
     }
 
@@ -39,6 +40,7 @@ public class MainMenuScript : MonoBehaviour
         if (isPaused == false)
         {
             player.GetComponent<PlayerController>().enabled = false;
+            FindObjectOfType<GunMovement>().enabled = false;
             pauseMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -47,6 +49,7 @@ public class MainMenuScript : MonoBehaviour
         } else
         {
             player.GetComponent<PlayerController>().enabled = true;
+            FindObjectOfType<GunMovement>().enabled = true;
             resetPauseMenu();
             pauseMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -123,6 +126,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        FindObjectOfType<GunMovement>().enabled = true;
         gameStarted = true;
         Score.SetActive(true);
         CrossHair.SetActive(true);

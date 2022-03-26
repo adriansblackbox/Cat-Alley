@@ -48,6 +48,7 @@ public class GameStateManager : MonoBehaviour
         HighScoreBoard.text = "Best Score: " + highScore.ToString();
         FindObjectOfType<resetTracker>().Spawn();
         player.GetComponent<PlayerController>().enabled = false;
+        FindObjectOfType<GunMovement>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         inGame = false;
@@ -110,6 +111,7 @@ public class GameStateManager : MonoBehaviour
         Scratch.SetActive(false);
         vignette.intensity.value = 0f;
         PlayerPrefs.Save();
+        FindObjectOfType<GunMovement>().enabled = false;
         GameOver = true;
     }
     private IEnumerator regenHealth(){
