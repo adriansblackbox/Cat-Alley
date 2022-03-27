@@ -18,7 +18,22 @@ public class AlleyMovement : MonoBehaviour
 
     private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
-
+        if(!gameObject.CompareTag("StartAlley")){ 
+            foreach(GameObject obs in OverHeadObstacles){
+                obs.SetActive(false);
+            }
+            foreach(GameObject obs in GroundObstacles){
+                obs.SetActive(false);
+            }
+            foreach(GameObject cat in Cats){
+                if(cat.activeSelf){
+                    cat.GetComponent<CatScript>().State = "Idle";
+                    cat.SetActive(false);
+                }
+            }
+            transform.position = WaitingZone.position;
+            GetComponent<AlleyMovement>().enabled = false;
+        }
     }
     void Update()
     {
