@@ -2634,7 +2634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391841375720802417, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8391841375720802417, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9273,7 +9273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391841375720802417, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8391841375720802417, guid: 1547736364ffc12418b0e8d82e39cd39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12803,7 +12803,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1983999621}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939279287
 GameObject:
@@ -12863,7 +12863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1983999621}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947993624
 GameObject:
@@ -18342,7 +18342,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1983999621}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358267591
 GameObject:
@@ -25852,7 +25852,7 @@ GameObject:
   - component: {fileID: 1937995162}
   - component: {fileID: 1714352446}
   m_Layer: 3
-  m_Name: Sci-Fi Rifle_fbx
+  m_Name: Fish Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25866,8 +25866,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939991386}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.224, y: 0.089000106, z: 0.96299994}
-  m_LocalScale: {x: 0.3171601, y: 0.3171596, z: 0.3171596}
+  m_LocalPosition: {x: 0.224, y: 0.089000106, z: 1.254}
+  m_LocalScale: {x: 0.3171601, y: 0.31715947, z: 0.31715947}
   m_Children: []
   m_Father: {fileID: 1619353723}
   m_RootOrder: 0
@@ -26590,9 +26590,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2083033383}
-  - {fileID: 1333924738}
   - {fileID: 945693672}
   - {fileID: 931708931}
+  - {fileID: 1333924738}
   m_Father: {fileID: 1619353723}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
