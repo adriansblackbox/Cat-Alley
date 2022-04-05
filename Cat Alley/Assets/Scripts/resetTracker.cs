@@ -10,6 +10,28 @@ public class resetTracker : MonoBehaviour
     public GameObject currentAlley;
     private List<int> randInts = new List<int>{0,0,0};
 
+    private void Awake() {
+        for(int i = 0; i < Alleys.Count; ++i){
+            if(!Alleys[i].CompareTag("StartAlley")){ 
+                for(int j = 0; j < Alleys[i].GetComponent<AlleyMovement>().OverHeadObstacles.Length; ++j){
+                    Alleys[i].GetComponent<AlleyMovement>().OverHeadObstacles[j].SetActive(false);
+                }
+                for(int j = 0; j < Alleys[i].GetComponent<AlleyMovement>().GroundObstacles.Length; ++j){
+                    Alleys[i].GetComponent<AlleyMovement>().GroundObstacles[j].SetActive(false);
+                }
+                for(int j = 0; j < Alleys[i].GetComponent<AlleyMovement>().Cats.Length; ++j){
+                    if(Alleys[i].GetComponent<AlleyMovement>().Cats[j].activeSelf){
+                        Alleys[i].GetComponent<AlleyMovement>().Cats[j].GetComponent<CatScript>().State = "Idle";
+                        Alleys[i].GetComponent<AlleyMovement>().Cats[j].SetActive(false);
+                    }
+                }
+                Alleys[i].transform.position = Alleys[i].GetComponent<AlleyMovement>().WaitingZone.position;
+                Alleys[i].GetComponent<AlleyMovement>().enabled = false;
+                Debug.Log("Initialized");
+            }
+        }
+    }
+
     public void Spawn(){
         //selecting which alley to reset
         alleySelected = Random.Range(0, Alleys.Count);

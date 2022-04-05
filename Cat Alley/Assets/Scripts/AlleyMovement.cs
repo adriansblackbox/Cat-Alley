@@ -5,7 +5,7 @@ using UnityEngine;
 public class AlleyMovement : MonoBehaviour
 {
     private float alleySpeed;
-    private GameObject _player;
+    public GameObject _player;
     public Transform SpawnMarker;
     public Transform End;
     public Transform WaitingZone;
@@ -16,25 +16,6 @@ public class AlleyMovement : MonoBehaviour
     public Transform alleyTransform;
     public bool isTurnAlley = false;
 
-    private void Start() {
-        _player = GameObject.FindGameObjectWithTag("Player");
-        if(!gameObject.CompareTag("StartAlley")){ 
-            foreach(GameObject obs in OverHeadObstacles){
-                obs.SetActive(false);
-            }
-            foreach(GameObject obs in GroundObstacles){
-                obs.SetActive(false);
-            }
-            foreach(GameObject cat in Cats){
-                if(cat.activeSelf){
-                    cat.GetComponent<CatScript>().State = "Idle";
-                    cat.SetActive(false);
-                }
-            }
-            transform.position = WaitingZone.position;
-            GetComponent<AlleyMovement>().enabled = false;
-        }
-    }
     void Update()
     {
         if(End.position.z > _player.transform.position.z + 20f){
@@ -47,16 +28,16 @@ public class AlleyMovement : MonoBehaviour
     }
     private void Sleep(){
         if(!gameObject.CompareTag("StartAlley")){ 
-            foreach(GameObject obs in OverHeadObstacles){
-                obs.SetActive(false);
+            for(int i = 0; i < OverHeadObstacles.Length; ++i){
+                OverHeadObstacles[i].SetActive(false);
             }
-            foreach(GameObject obs in GroundObstacles){
-                obs.SetActive(false);
+            for(int i = 0; i <  GroundObstacles.Length; ++i){
+                GroundObstacles[i].SetActive(false);
             }
-            foreach(GameObject cat in Cats){
-                if(cat.activeSelf){
-                    cat.GetComponent<CatScript>().State = "Idle";
-                    cat.SetActive(false);
+            for(int i = 0; i < Cats.Length; ++i){
+                if(Cats[i].activeSelf){
+                    Cats[i].GetComponent<CatScript>().State = "Idle";
+                    Cats[i].SetActive(false);
                 }
             }
             transform.position = WaitingZone.position;

@@ -6877,6 +6877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 561412074}
   WaitingZone: {fileID: 1777478134}
@@ -7448,6 +7449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1210691943}
   WaitingZone: {fileID: 1777478134}
@@ -7513,6 +7515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1949833664}
   WaitingZone: {fileID: 1777478134}
@@ -8365,6 +8368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1300946214}
   WaitingZone: {fileID: 1777478134}
@@ -8603,6 +8607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1445271821}
   WaitingZone: {fileID: 1777478134}
@@ -9495,6 +9500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1763211516}
   WaitingZone: {fileID: 1777478134}
@@ -9818,6 +9824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 9672650}
   WaitingZone: {fileID: 1777478134}
@@ -18291,6 +18298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 644718891}
   WaitingZone: {fileID: 1777478134}
@@ -23349,7 +23357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784862791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.34, y: -16.110493, z: 39.7}
+  m_LocalPosition: {x: -21.34, y: -16.110493, z: 40.13}
   m_LocalScale: {x: 0.4728415, y: 1, z: 3.1299999}
   m_Children:
   - {fileID: 1980823825}
@@ -23369,6 +23377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 1980823825}
   WaitingZone: {fileID: 1777478134}
@@ -24337,6 +24346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde962935b86cfd46b9fad683687ec41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1619353719}
   SpawnMarker: {fileID: 47397182}
   End: {fileID: 959981263}
   WaitingZone: {fileID: 1777478134}
