@@ -94,18 +94,20 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
-    public void pauseInstructions()
+    public void pauseOptions()
     {
-        if (!instructionsOpened)
+        if (!optionsOpened)
         {
             pauseMenu.transform.GetChild(1).gameObject.SetActive(false);
-            pauseMenu.transform.GetChild(2).gameObject.SetActive(true);
-            instructionsOpened = true;
+            pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+            pauseMenu.transform.GetChild(3).gameObject.SetActive(true);
+            optionsOpened = true;
         } else
         {
             pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
             pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
-            instructionsOpened = false;
+            pauseMenu.transform.GetChild(3).gameObject.SetActive(false);
+            optionsOpened = false;
         }
     }
 
@@ -140,9 +142,10 @@ public class MainMenuScript : MonoBehaviour
 
     public void resetPauseMenu()
     {
-        instructionsOpened = false;
+        optionsOpened = false;
         pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
         pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
+        pauseMenu.transform.GetChild(3).gameObject.SetActive(false);
     }
     
     public void CloseGame()
