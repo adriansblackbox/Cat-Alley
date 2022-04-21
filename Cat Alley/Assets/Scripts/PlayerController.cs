@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         _groundHeight = this.transform.position.y;
     }
     void Update(){
+        SetSensitivity();
         Aim();
         Duck();
         Jump();
@@ -112,6 +113,9 @@ public class PlayerController : MonoBehaviour
         {
             state.minusLive();
         }
+    }
+    private void SetSensitivity(){
+        MouseSensitivity = PlayerPrefs.GetFloat("Mouse Sensitivity");
     }
 
 }
