@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class MainMenuScript : MonoBehaviour
             gStateManager.GetComponent<GameStateManager>().inGame = false;
         } else
         {
+            EventSystem.current.SetSelectedGameObject(null);
             player.GetComponent<PlayerController>().enabled = true;
             FindObjectOfType<GunMovement>().enabled = true;
             resetPauseMenu();
