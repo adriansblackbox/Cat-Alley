@@ -25,8 +25,8 @@ public class GameStateManager : MonoBehaviour
     private bool regeningHealth = false;
     public GameObject postProcessing;
     private Vignette vignette;
-    public Text MouseSensitivityText;
-    public Slider MouseSensitivitySlider;
+    public Text MouseSensitivityText1, MouseSensitivityText2;
+    public Slider MouseSensitivitySlider1, MouseSensitivitySlider2;
     private float highScore = 0;
     public Text HighScoreBoard;
     public bool Scratched = false;
@@ -54,8 +54,8 @@ public class GameStateManager : MonoBehaviour
         inGame = false;
         postProcessing.GetComponent<Volume>().profile.TryGet(out vignette);
         // Sets saved mosue sensitivity
-        MouseSensitivitySlider.value = PlayerPrefs.GetFloat("Mouse Sensitivity");
-        MouseSensitivityText.text =  MouseSensitivitySlider.value.ToString();
+        MouseSensitivitySlider1.value = PlayerPrefs.GetFloat("Mouse Sensitivity");
+        MouseSensitivityText1.text =  MouseSensitivitySlider1.value.ToString();
         Scratch.SetActive(false);
         GameOver = false;
     }
@@ -129,9 +129,14 @@ public class GameStateManager : MonoBehaviour
             }
         yield return null;
     }
-     public void OnMouseSensitivityChange(){
-        PlayerPrefs.SetFloat("Mouse Sensitivity", MouseSensitivitySlider.value);
-        MouseSensitivityText.text =  MouseSensitivitySlider.value.ToString();
+    public void OnMouseSensitivityChange(){
+        if(!FindObjectOfType<MainMenuScript>().isPaused) {
+            PlayerPrefs.SetFloat("Mouse Sensitivity", MouseSensitivitySlider1.value);
+            MouseSensitivitySlider2.value = MouseSensitivitySlider1.value;
+        }else
+            PlayerPrefs.SetFloat("Mouse Sensitivity", MouseSensitivitySlider2.value);
+        MouseSensitivityText1.text =  MouseSensitivitySlider1.value.ToString();
+        MouseSensitivityText2.text =  MouseSensitivitySlider2.value.ToString();
         PlayerPrefs.Save();
     }
 }

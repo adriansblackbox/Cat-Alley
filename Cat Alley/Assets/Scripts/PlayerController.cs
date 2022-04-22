@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         transform.position -= new Vector3 (0.0f, 0.0f, FindObjectOfType<GameStateManager>().AlleySpeed)* Time.deltaTime;
     }
     private void Aim(){
-        MouseSensitivity = FindObjectOfType<GameStateManager>().MouseSensitivitySlider.value;
+        MouseSensitivity = PlayerPrefs.GetFloat("Mouse Sensitivity");
         rotY += Input.GetAxis("Mouse X") * MouseSensitivity;
         rotX += Input.GetAxis("Mouse Y") * -MouseSensitivity;
         rotX = Mathf.Clamp(rotX, minTurnAngle - 10f, maxTurnAngle);
